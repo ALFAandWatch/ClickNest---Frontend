@@ -19,7 +19,9 @@ const RegisterForm = () => {
             text: 'Registro realizado con éxito',
             confirmButtonText: 'OK',
          }).then((result) => {
-            result.isConfirmed && router.push('/');
+            if (result.isConfirmed) {
+               router.push('/');
+            }
          });
       });
    };

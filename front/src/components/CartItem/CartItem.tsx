@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 
 interface CartItemProps {
@@ -21,7 +22,7 @@ const CartItem: React.FC<CartItemProps> = ({
       <div className="border rounded-lg shadow-md p-4 flex items-center gap-4 bg-white w-full">
          {/* Product Image */}
          <Link href={`/product/${id}`} className="w-20 h-20">
-            <img
+            <Image
                src={image}
                alt={name}
                className="rounded-lg object-cover w-full h-full"

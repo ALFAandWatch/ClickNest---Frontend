@@ -1,21 +1,19 @@
 'use client';
 
 import { getProducts } from '@/app/lib/productService';
-import { useParams, useRouter } from 'next/navigation';
+import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { Product } from '@/types/Product';
 import Card from '@/components/Card/Card';
 import CategoryTitle from '@/components/CategoryTitle/CategoryTitle';
 
-type ProductCategoryProps = {
-   params: { productCategory: number };
-};
-
 const ProductCategory = () => {
    const params = useParams();
    const [products, setProducts] = useState<Product[]>([]);
-   const [chosenCategory, setchosenCategory] = useState<number | null>(null);
-   const router = useRouter();
+   const [chosenCategory, setchosenCategory] = useState<number | undefined>(
+      undefined
+   );
+   // const router = useRouter();
 
    useEffect(() => {
       if (params.productCategory) {
@@ -35,10 +33,11 @@ const ProductCategory = () => {
       fetchProducts();
    }, []);
 
-   const categoryId = Number(params.productCategory);
+   const categoryId = chosenCategory;
 
-   categoryId > 6 && router.push('/desconocido');
-
+   // if (categoryId && categoryId > 6) {
+   //    router.push('/desconocido');
+   // }
    const filteredProducts = categoryId
       ? products.filter((product) => product.categoryId === categoryId)
       : [];
@@ -48,21 +47,25 @@ const ProductCategory = () => {
          <div>
             {<CategoryTitle chosenCategory={categoryId} />}
             <div className="flex flex-row flex-wrap justify-center w-[80%] mx-auto mb-[100px]">
-               {filteredProducts.map((product: Product) => {
-                  const { id, name, description, image, price } = product;
-                  const quantity = 0;
-                  return (
-                     <Card
-                        key={id}
-                        id={id}
-                        name={name}
-                        description={description}
-                        image={image}
-                        quantity={quantity}
-                        price={price}
-                     />
-                  );
-               })}
+               {filteredProducts.length > 0 ? (
+                  filteredProducts.map((product: Product) => {
+                     const { id, name, description, image, price } = product;
+                     const quantity = 0;
+                     return (
+                        <Card
+                           key={id}
+                           id={id}
+                           name={name}
+                           description={description}
+                           image={image}
+                           quantity={quantity}
+                           price={price}
+                        />
+                     );
+                  })
+               ) : (
+                  <p>No products found for this category</p>
+               )}
             </div>
          </div>
       </>

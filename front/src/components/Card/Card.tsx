@@ -5,38 +5,41 @@ import { useCart } from '@/context/CartContext';
 import Swal from 'sweetalert2';
 import { ProductWithQuantity } from '@/types/ProductWithQuantity';
 import { ProductCardType } from '@/types/ProductCardType';
+import Image from 'next/image';
 
 const Card: FC<ProductWithQuantity> = (props: ProductCardType) => {
-   const { id, name, description, image, price } = props;
+   const { id, name, image, price } = props;
 
    const { isAuthenticated } = useAuth();
    const { addToCart } = useCart();
 
    const handleAddToCart = () => {
-      isAuthenticated
-         ? Swal.fire({
-              imageUrl: image,
-              imageWidth: '50%',
-              title: '¿Agregar al carrito?',
-              inputLabel: '¿Cuántos?',
-              input: 'number',
-              inputValue: '1',
-              reverseButtons: true,
-              confirmButtonColor: '#39c9bb',
-              confirmButtonText: 'Agregar',
-              showCancelButton: true,
-              cancelButtonText: 'Cancelar',
-           }).then((result) => {
-              if (result.isConfirmed) {
-                 addToCart({ ...props, quantity: parseInt(result.value) });
-              }
-           })
-         : Swal.fire({
-              icon: 'info',
-              text: 'Debes ingresar para poder agregar productos al carrito.',
-              confirmButtonColor: '#39c9bb',
-              confirmButtonText: 'OK',
-           });
+      if (isAuthenticated) {
+         Swal.fire({
+            imageUrl: image,
+            imageWidth: '50%',
+            title: '¿Agregar al carrito?',
+            inputLabel: '¿Cuántos?',
+            input: 'number',
+            inputValue: '1',
+            reverseButtons: true,
+            confirmButtonColor: '#39c9bb',
+            confirmButtonText: 'Agregar',
+            showCancelButton: true,
+            cancelButtonText: 'Cancelar',
+         }).then((result) => {
+            if (result.isConfirmed) {
+               addToCart({ ...props, quantity: parseInt(result.value) });
+            }
+         });
+      } else {
+         Swal.fire({
+            icon: 'info',
+            text: 'Debes ingresar para poder agregar productos al carrito.',
+            confirmButtonColor: '#39c9bb',
+            confirmButtonText: 'OK',
+         });
+      }
    };
 
    return (
@@ -44,7 +47,7 @@ const Card: FC<ProductWithQuantity> = (props: ProductCardType) => {
          {
             <div className="border rounded-lg shadow-lg p-4 m-3 w-[18rem] h-[24rem]">
                <Link href={`/product/${id}`}>
-                  <img
+                  <Image
                      src={image}
                      alt={`${name}`}
                      className="w-full h-48 rounded-lg object-contain m-2"

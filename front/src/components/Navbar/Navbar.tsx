@@ -4,6 +4,7 @@ import { useAuth } from '@/context/AuthContext';
 import { logOutUser } from '@/app/lib/userService';
 import { useRouter } from 'next/navigation';
 import { useCart } from '@/context/CartContext';
+import Image from 'next/image';
 
 const Navbar = () => {
    const { isAuthenticated, setIsAuthenticated } = useAuth();
@@ -27,7 +28,7 @@ const Navbar = () => {
                   <h2 className="text-white align-middle text-4xl font-sans font-bold inline">
                      ClickNest
                   </h2>
-                  <img
+                  <Image
                      className="inline p-2 align-middle"
                      src="icons/raven.svg"
                      alt="ClickNest"
@@ -58,7 +59,7 @@ const Navbar = () => {
                         <ul className="flex flex-row px-2wq">
                            <li>
                               <Link href="/dashboard">
-                                 <img
+                                 <Image
                                     className="p-2 py-4 hover:brightness-200"
                                     src="icons/bell.svg"
                                     alt="Notificaciones"
@@ -67,7 +68,7 @@ const Navbar = () => {
                            </li>
                            <li>
                               <Link href="/dashboard">
-                                 <img
+                                 <Image
                                     className="p-2 py-4 hover:brightness-200"
                                     src="icons/user.svg"
                                     alt="Perfil"
@@ -76,7 +77,7 @@ const Navbar = () => {
                            </li>
                            <li className="relative">
                               <Link href="/cart">
-                                 <img
+                                 <Image
                                     className="p-2 py-4 hover:brightness-200"
                                     src="icons/cart.svg"
                                     alt="Carrito"
@@ -138,17 +139,17 @@ const Navbar = () => {
                   Impresoras
                </button>
             </Link>
-            <Link href="/monitors">
+            <Link href="/monitors/7">
                <button className="p-2 px-3 mx-1 rounded-md h-full border border-turquoise hover:border hover:border-white hover:text-white transition duration-500 ease-in-out font-light font-sans">
                   Monitores
                </button>
             </Link>
-            <Link href="/storage">
+            <Link href="/storage/8">
                <button className="p-2 px-3 mx-1 rounded-md h-full border border-turquoise hover:border hover:border-white hover:text-white transition duration-500 ease-in-out font-light font-sans">
                   Mobiliario
                </button>
             </Link>
-            <Link href="/accessories">
+            <Link href="/accessories/9">
                <button className="p-2 px-3 mx-1 rounded-md h-full border border-turquoise hover:border hover:border-white hover:text-white transition duration-500 ease-in-out font-light font-sans">
                   Accesorios
                </button>

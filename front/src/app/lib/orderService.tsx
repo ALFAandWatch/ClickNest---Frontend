@@ -1,5 +1,5 @@
 import { OrderType } from '@/types/OrderType';
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
@@ -24,11 +24,15 @@ export async function createOrder(userId: number, products: number[]) {
       );
 
       return response.data;
-   } catch (error: any) {
-      console.error(
-         'Order creation failed:',
-         error.response?.data || error.message
-      );
+   } catch (error: unknown) {
+      if (error instanceof AxiosError) {
+         console.error(
+            'Order creation failed:',
+            error.response?.data || error.message
+         );
+      } else {
+         console.error('An unexpected error occurred:', error);
+      }
       throw error;
    }
 }

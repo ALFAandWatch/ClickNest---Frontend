@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { FC } from 'react';
 
 const Footer: FC = () => {
@@ -82,7 +83,7 @@ const Footer: FC = () => {
                <h3 className="text-lg font-semibold mb-3">Síguenos</h3>
                <div className="flex flex-col">
                   <a href="#" className="hover:text-turquoise">
-                     <img
+                     <Image
                         className="invert inline me-2"
                         src="icons/facebook.svg"
                         alt="Facebook"
@@ -90,7 +91,7 @@ const Footer: FC = () => {
                      Facebook
                   </a>
                   <a href="#" className="hover:text-turquoise">
-                     <img
+                     <Image
                         className="invert inline me-2"
                         src="icons/instagram.svg"
                         alt="Instagram"
@@ -98,7 +99,7 @@ const Footer: FC = () => {
                      Instagram
                   </a>
                   <a href="#" className="hover:text-turquoise">
-                     <img
+                     <Image
                         className="invert inline me-2"
                         src="icons/x.svg"
                         alt="X"

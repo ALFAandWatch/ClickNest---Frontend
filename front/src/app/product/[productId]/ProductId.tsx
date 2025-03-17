@@ -3,6 +3,7 @@
 import { useParams } from 'next/navigation';
 import productosHelper from '../../../helpers/productos';
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 
 const ProductDetails = () => {
    const params = useParams();
@@ -36,7 +37,7 @@ const ProductDetails = () => {
       <div className="flex justify-center items-center min-h-screen bg-gray-100">
          <div className="max-w-4xl w-full bg-white shadow-lg rounded-lg p-8 flex flex-col md:flex-row items-center gap-6">
             <div className="w-full md:w-1/2">
-               <img
+               <Image
                   src={product.image}
                   alt={product.name}
                   className="w-full h-auto rounded-lg object-contain"

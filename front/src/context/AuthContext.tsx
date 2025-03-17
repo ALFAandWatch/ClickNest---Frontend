@@ -7,7 +7,7 @@ import {
    useEffect,
 } from 'react';
 import { AuthContextType } from '../types/AuthContextType';
-import { AuthenticatedUser, User } from '@/types/User';
+import { AuthenticatedUser } from '@/types/User';
 import { OrderType } from '@/types/OrderType';
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);

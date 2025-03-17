@@ -1,6 +1,6 @@
 import { LoginObject } from '@/types/LoginObject';
 import { User } from '@/types/User';
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 import Swal from 'sweetalert2';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
@@ -12,12 +12,16 @@ export async function registerUser(values: User) {
          throw new Error('Error al registrar al usuario!');
       }
       return response.data;
-   } catch (error) {
-      Swal.fire({
-         icon: 'error',
-         text: 'Error al registrar al ususario.',
-         confirmButtonText: 'OK',
-      });
+   } catch (error: unknown) {
+      if (error instanceof AxiosError) {
+         Swal.fire({
+            icon: 'error',
+            text: 'Error al registrar al ususario.',
+            confirmButtonText: 'OK',
+         });
+      } else {
+         console.error('An unexpected error occurred:', error);
+      }
       return [];
    }
 }
@@ -32,11 +36,15 @@ export async function loginUser(values: LoginObject) {
 
       return response.data;
    } catch (error) {
-      Swal.fire({
-         icon: 'error',
-         title: 'Error al intentar ingresar.',
-         confirmButtonText: 'Volver',
-      });
+      if (error instanceof AxiosError) {
+         Swal.fire({
+            icon: 'error',
+            title: 'Error al intentar ingresar.',
+            confirmButtonText: 'Volver',
+         });
+      } else {
+         console.error('An unexpected error occurred:', error);
+      }
       return [];
    }
 }

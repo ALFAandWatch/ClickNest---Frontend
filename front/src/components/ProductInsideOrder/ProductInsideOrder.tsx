@@ -1,4 +1,4 @@
-import { Product } from '@/types/Product';
+import Image from 'next/image';
 
 type propsType = {
    image: string;
@@ -10,7 +10,7 @@ const ProductInsideOrder = (props: propsType) => {
    const { image, name, price } = props;
    return (
       <div className="flex items-center gap-4 p-3 bg-gray-50 rounded-lg shadow-sm">
-         <img
+         <Image
             src={image}
             alt={name}
             className="w-16 h-16 object-cover rounded-lg"
