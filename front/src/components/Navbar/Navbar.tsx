@@ -30,7 +30,7 @@ const Navbar = () => {
                   </h2>
                   <Image
                      className="inline p-2 align-middle"
-                     src="icons/raven.svg"
+                     src="/icons/raven.svg"
                      alt="ClickNest"
                   />
                </Link>
@@ -61,7 +61,7 @@ const Navbar = () => {
                               <Link href="/dashboard">
                                  <Image
                                     className="p-2 py-4 hover:brightness-200"
-                                    src="icons/bell.svg"
+                                    src="/icons/bell.svg"
                                     alt="Notificaciones"
                                  />
                               </Link>
@@ -70,7 +70,7 @@ const Navbar = () => {
                               <Link href="/dashboard">
                                  <Image
                                     className="p-2 py-4 hover:brightness-200"
-                                    src="icons/user.svg"
+                                    src="/icons/user.svg"
                                     alt="Perfil"
                                  />
                               </Link>
@@ -79,7 +79,7 @@ const Navbar = () => {
                               <Link href="/cart">
                                  <Image
                                     className="p-2 py-4 hover:brightness-200"
-                                    src="icons/cart.svg"
+                                    src="/icons/cart.svg"
                                     alt="Carrito"
                                  />
                                  {totalItems > 0 && (
@@ -139,17 +139,17 @@ const Navbar = () => {
                   Impresoras
                </button>
             </Link>
-            <Link href="/monitors/7">
+            <Link href="/products/7">
                <button className="p-2 px-3 mx-1 rounded-md h-full border border-turquoise hover:border hover:border-white hover:text-white transition duration-500 ease-in-out font-light font-sans">
                   Monitores
                </button>
             </Link>
-            <Link href="/storage/8">
+            <Link href="/products/8">
                <button className="p-2 px-3 mx-1 rounded-md h-full border border-turquoise hover:border hover:border-white hover:text-white transition duration-500 ease-in-out font-light font-sans">
                   Mobiliario
                </button>
             </Link>
-            <Link href="/accessories/9">
+            <Link href="/products/9">
                <button className="p-2 px-3 mx-1 rounded-md h-full border border-turquoise hover:border hover:border-white hover:text-white transition duration-500 ease-in-out font-light font-sans">
                   Accesorios
                </button>

@@ -24,7 +24,10 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
                <Link href="/dashboard" className="block hover:text-turquoise">
                   Perfil
                </Link>
-               <Link href="/orders" className="block hover:text-turquoise">
+               <Link
+                  href="/orders"
+                  className="block hover:text-turquoise text-gray-400"
+               >
                   Mis Pedidos
                </Link>
                <Link

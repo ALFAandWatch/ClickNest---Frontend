@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import { Product } from '@/types/Product';
 import Card from '@/components/Card/Card';
 import CategoryTitle from '@/components/CategoryTitle/CategoryTitle';
+import WarningNoProducts from '@/components/WarningNoProducts/WarningNoProducts';
 
 const ProductCategory = () => {
    const params = useParams();
@@ -35,9 +36,6 @@ const ProductCategory = () => {
 
    const categoryId = chosenCategory;
 
-   // if (categoryId && categoryId > 6) {
-   //    router.push('/desconocido');
-   // }
    const filteredProducts = categoryId
       ? products.filter((product) => product.categoryId === categoryId)
       : [];
@@ -64,7 +62,7 @@ const ProductCategory = () => {
                      );
                   })
                ) : (
-                  <p>No products found for this category</p>
+                  <WarningNoProducts />
                )}
             </div>
          </div>
