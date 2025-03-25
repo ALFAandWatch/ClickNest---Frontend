@@ -22,20 +22,20 @@ const Navbar = () => {
 
    return (
       <>
-         <div className="w-full bg-black flex flex-row px-3">
-            <div className="basis-1/3">
+         <div className="w-full bg-black flex flex-row px-1 lg:px-3 justify-between">
+            <div className="basis-3/9 pt-3 lg:p-0">
                <Link href="/">
-                  <h2 className="text-white align-middle text-4xl font-sans font-bold inline">
+                  <h2 className="text-white align-middle text-xl lg:text-4xl font-sans font-bold inline">
                      ClickNest
                   </h2>
                   <Image
-                     className="inline p-2 align-middle"
+                     className="inline p-0 pl-1 lg:p-2 align-middle w-7 lg:w-auto"
                      src="/icons/raven.svg"
                      alt="ClickNest"
                   />
                </Link>
             </div>
-            <div className="basis-2/3 flex flex-row justify-end">
+            <div className="basis-6/9 flex flex-row justify-end">
                {!isAuthenticated ? (
                   <>
                      <div className="pe-1">
@@ -93,7 +93,7 @@ const Navbar = () => {
                      </div>
                      <div className="pe-1">
                         <button
-                           className="bg-black p-2 px-3 my-2 text-turquoise rounded-md font-sans font-light hover:brightness-150 border border-black hover:border hover:border-turquoise transition duration-500 ease-in-out"
+                           className="bg-turquoise lg:bg-black p-2 align-text-top lg:align-center lg:px-3 my-1 lg:my-2 ml-2 lg:ml-4 text-black lg:text-turquoise rounded-md font-sans font-light hover:brightness-150 border border-black hover:border hover:border-turquoise transition duration-500 ease-in-out"
                            onClick={handleLogOut}
                         >
                            Cerrar Sesión
@@ -103,7 +103,7 @@ const Navbar = () => {
                )}
             </div>
          </div>
-         <div className="w-full bg-turquoise flex flex-row justify-between px-3 text-sm py-1">
+         <div className="w-full bg-turquoise flex flex-row flex-wrap lg:flex-nowrap justify-around lg:justify-between px-3 text-sm py-1">
             <Link href="/categories">
                <button className="p-2 px-3 rounded-md bg-black text-turquoise hover:brightness-150 font-light">
                   Todas las Categorías

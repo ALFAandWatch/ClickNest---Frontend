@@ -23,8 +23,8 @@ const Home: FC = () => {
    return (
       <>
          <div>
-            <section className="relative w-full h-[560px] bg-[url('https://www.vintagewinders.co.uk/wp-content/uploads/2017/04/vintage-winders-rolex-banner.jpg')] bg-cover bg-center flex items-center justify-center text-white mb-[100px]">
-               <div className="text-center bg-black bg-opacity-50 p-6 rounded-lg">
+            <section className="relative w-full h-[560px] bg-[url('https://www.vintagewinders.co.uk/wp-content/uploads/2017/04/vintage-winders-rolex-banner.jpg')] bg-cover bg-[center_left_40rem] lg:bg-center flex items-center justify-center text-white mb-[100px]">
+               <div className="text-center bg-black bg-opacity-50 p-6 rounded-lg mx-4 lg:m-0">
                   <h1 className="text-4xl font-bold">
                      Descubre lo mejor en moda y accesorios.
                   </h1>
